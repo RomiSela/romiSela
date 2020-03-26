@@ -8,13 +8,14 @@ using OpenQA.Selenium.Interactions;
 
 namespace Infrastructure
 {
-    public class Clothing : ComponantBase
+    public class Product : ComponantBase
     {
         private IWebElement AddToCartButton => ParentElement.FindElement(By.CssSelector(".button-container a span"));
         private IWebElement Picture => ParentElement.FindElement(By.ClassName("replace-2x.img-responsive"));
-        private IWebElement ContinueShoppingButton => ParentElement.FindElements(By.CssSelector(".button-container span")).First();
+        private IWebElement ContinueShoppingButton => ParentElement.FindElement(By.CssSelector(".continue.btn.btn-default.button.exclusive-medium span"));
+        private IList<IWebElement> Colors => ParentElement.FindElements(By.CssSelector(".color_to_pick_list.clearfix a"));
 
-        public Clothing(IWebDriver driver, IWebElement element) : base(driver, element)
+        public Product(IWebDriver driver, IWebElement element) : base(driver, element)
         {
         }
 

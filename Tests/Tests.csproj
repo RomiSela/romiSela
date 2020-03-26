@@ -59,7 +59,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TestBase.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="TestCartPage.cs" />
+    <Compile Include="TestCatalogPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
