@@ -9,3 +9,10 @@ d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\obj\Debug\Tes
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\obj\Debug\Tests.dll
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\obj\Debug\Tests.pdb
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Tests.dll.config
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\FluentAssertions.dll
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\System.ValueTuple.dll
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\FluentAssertions.pdb
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\FluentAssertions.xml
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\System.ValueTuple.xml
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Core.dll
+d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Core.pdb

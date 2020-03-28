@@ -4,32 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using Infrastructure.Pages;
+using Core;
 namespace Infrastructure
 {
     public class CatalogPage : BasePage
     {
-        private Product Product => new Product(Driver, Driver.FindElement(By.CssSelector(".product-container")));
+        private List<Product> Products => Driver.FindElements(By.CssSelector(".product_list.grid.row .product-container")).Select(element => new Product(Driver, element)).ToList();
+        //private List<Product> Products => Driver.FindElements(By.CssSelector(".product_list.grid.row .product-container")).Select(element => new Product(Driver ,WaitManager.WaitUntilDisabled(Driver, element))).ToList();
+
+        private OptionsAfterAddingProduct OptionsAfterAddingProduct => new OptionsAfterAddingProduct(Driver, Driver.FindElement(By.CssSelector(".button-container")));
 
         public CatalogPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public CatalogPage PointMouseAtPicture()
+        public CatalogPage PointMouseAtPicture(int place)
         {
-            Product.PointMouseAtPicture();
+            Products[place].StandOnProduct();
             return new CatalogPage(Driver);
         }
 
-        public CatalogPage AddToCart()
+        public CatalogPage AddToCart(int place)
         {
-            Product.AddToCart();
+            Products[place].AddToCart();
             return new CatalogPage(Driver);
         }
 
         public CatalogPage PressContinueShopping()
         {
-            Product.PressContinueShopping();
+            OptionsAfterAddingProduct.ClickContinueShoppingButton();
             return new CatalogPage(Driver);
+        }
+
+        public CartPage PressProceedToCheckout()
+        {
+            OptionsAfterAddingProduct.ClickProceedToCheckoutButton();
+            return new CartPage(Driver);
         }
     }
 }

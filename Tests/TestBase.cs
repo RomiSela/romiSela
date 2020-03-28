@@ -21,13 +21,14 @@ namespace Tests
         {
             Driver = new ChromeDriver();
             Driver.Navigate().GoToUrl($@"{ConfigurationManager.AppSettings["WEBSITE_URL"]}");
+            Driver.Manage().Window.Maximize();
             HomePage = new HomePage(Driver);
         }
 
-        //[TestCleanup]
-        //public void CleanUp()
-        //{
-        //    Driver.Close();
-        //}
+        [TestCleanup]
+        public void CleanUp()
+        {
+            Driver.Close();
+        }
     }
 }

@@ -10,16 +10,16 @@ namespace Infrastructure
 {
     public class Product : ComponantBase
     {
-        private IWebElement AddToCartButton => ParentElement.FindElement(By.CssSelector(".button-container a span"));
-        private IWebElement Picture => ParentElement.FindElement(By.ClassName("replace-2x.img-responsive"));
-        private IWebElement ContinueShoppingButton => ParentElement.FindElement(By.CssSelector(".continue.btn.btn-default.button.exclusive-medium span"));
+        private IWebElement AddToCartButton => ParentElement.FindElement(By.CssSelector(".button.ajax_add_to_cart_button.btn.btn-default span"));
+        private IWebElement Picture => ParentElement.FindElement(By.CssSelector(".left-block"));
+        
         private IList<IWebElement> Colors => ParentElement.FindElements(By.CssSelector(".color_to_pick_list.clearfix a"));
 
         public Product(IWebDriver driver, IWebElement element) : base(driver, element)
         {
         }
 
-        public void PointMouseAtPicture()
+        public void StandOnProduct()
         {
             Actions action = new Actions(Driver);
             action.MoveToElement(Picture).Perform();
@@ -28,11 +28,6 @@ namespace Infrastructure
         public void AddToCart()
         {
             AddToCartButton.Click();
-        }
-
-        public void PressContinueShopping()
-        {
-            ContinueShoppingButton.Click();
         }
     }
 }

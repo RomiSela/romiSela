@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-
+using Core;
 namespace Infrastructure
 {
     public class TopMenu : ComponantBase

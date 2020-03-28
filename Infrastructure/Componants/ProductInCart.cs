@@ -16,5 +16,10 @@ namespace Infrastructure
         public ProductInCart(IWebDriver driver, IWebElement element) : base(driver, element)
         {
         }
+
+        public void PressTrashButton()
+        {
+            TrashButton.Click();
+        }
     }
 }
