@@ -9,9 +9,9 @@ namespace Infrastructure
 {
     public class Quantity : ComponantBase
     {
-        private IWebElement QuantityNumber => ParentElement.FindElement(By.ClassName("cart_quantity_input form-control grey"));
-        private IWebElement AddQuantity => ParentElement.FindElement(By.ClassName("icon-plus"));
-        private IWebElement MinusQuantity => ParentElement.FindElement(By.ClassName("icon-minus"));
+        private IWebElement QuantityNumber => ParentElement.WaitAndFindElement(By.ClassName("cart_quantity_input form-control grey"));
+        private IWebElement AddQuantity => ParentElement.WaitAndFindElement(By.ClassName("icon-plus"));
+        private IWebElement MinusQuantity => ParentElement.WaitAndFindElement(By.ClassName("icon-minus"));
 
         public Quantity(IWebDriver driver, IWebElement element) : base(driver, element)
         {

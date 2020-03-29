@@ -1,10 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
+using Extensions;
+using Core;
+
 namespace Tests
 {
     [TestClass]
@@ -13,26 +11,21 @@ namespace Tests
         [TestMethod]
         public void AddingOneDeletingProductFromCart()
         {
-            HomePage
-                .ClickOnWomenButton()
-                .PointMouseAtPicture(0)
-                .AddToCart(0)
-                .PressProceedToCheckout()
-                .PressTrashButton(0)
+            HomePage.
+                ClickOnWomenButton()
+                .AddProductAndProceedToCart(ConfigManager.IndexOfProductZero)
+                .PressTrashButton(ConfigManager.IndexOfProductZero)
                 .AllertPerform().Should().BeTrue();
         }
 
         [TestMethod]
-        public void AddingSomeDeletingProductsFromCart()
+        public void AddingSomeDeletingProductFromCart()
         {
             HomePage
-                .ClickOnWomenButton()
-                .PointMouseAtPicture(0)
-                .AddToCart(0)
-                .PressContinueShopping()
-                .PointMouseAtPicture(1)
-                .AddToCart(1)
-                .PressProceedToCheckout();
+            .ClickOnWomenButton()
+            .AddTwoProductsAndProceedToCart()
+            .PressTrashButton(ConfigManager.IndexOfProductZero)
+            .NumberOfProducts().Should().Be(1);
         }
     }
 }

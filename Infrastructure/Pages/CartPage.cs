@@ -5,28 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using Core;
+
 namespace Infrastructure.Pages
 {
     public class CartPage : BasePage
     {
-        //private List<ProductInCart> ProductInCart =>Driver.FindElements(By.CssSelector("tbody")).Select(element => new ProductInCart(Driver,Driver.FindElement(By.CssSelector(".cart_item")))).ToList();
-        private List<ProductInCart> ProductInCart => Driver.FindElements(By.CssSelector("tbody")).Select(element => new ProductInCart(Driver, WaitManager.WaitUntilDisabled(Driver, By.CssSelector(".cart_item")))).ToList();
+        private List<ProductInCart> ProductInCarts => Driver.FindElements(By.CssSelector("tbody .cart_item")).Select(element => new ProductInCart(Driver, element)).ToList();
+        private IWebElement TotalProductsPrice => Driver.WaitAndFindElement(By.CssSelector("#total_product"));
+        private IWebElement AlertNoProducts => Driver.WaitAndFindElement(By.CssSelector(".alert.alert-warning"));
 
-        private IWebElement TotalProductsPrice => Driver.FindElement(By.CssSelector("#total_product"));
-        private IWebElement AlertNoProducts => Driver.FindElement(By.CssSelector(".alert.alert-warning"));
         public CartPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public double GetTotalProductsPrice()
+        public string GetTotalProductsPrice()
         {
-            string price = TotalProductsPrice.Text;
-            return double.Parse(price);
+            return TotalProductsPrice.Text;
         }
 
         public CartPage PressTrashButton(int place)
         {
-            ProductInCart[place].PressTrashButton();
+            ProductInCarts[place].PressTrashButton();
             return new CartPage(Driver);
         }
 
@@ -36,6 +35,11 @@ namespace Infrastructure.Pages
                 return true;
             else
                 return false;
+        }
+
+        public int NumberOfProducts()
+        {
+            return ProductInCarts.Count();
         }
     }
 }

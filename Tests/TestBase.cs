@@ -1,13 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Infrastructure.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.Configuration;
+using Core;
+
 namespace Tests
 {
     [TestClass]
@@ -20,15 +16,15 @@ namespace Tests
         public void TestInitialize()
         {
             Driver = new ChromeDriver();
-            Driver.Navigate().GoToUrl($@"{ConfigurationManager.AppSettings["WEBSITE_URL"]}");
+            Driver.Navigate().GoToUrl($@"{ConfigManager.WebsiteUrl}");
             Driver.Manage().Window.Maximize();
             HomePage = new HomePage(Driver);
         }
 
-        [TestCleanup]
-        public void CleanUp()
-        {
-            Driver.Close();
-        }
+        //[TestCleanup]
+        //public void CleanUp()
+        //{
+        //    Driver.Close();
+        //}
     }
 }

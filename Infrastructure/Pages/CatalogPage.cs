@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using Infrastructure.Pages;
 using Core;
+
 namespace Infrastructure
 {
     public class CatalogPage : BasePage
     {
         private List<Product> Products => Driver.FindElements(By.CssSelector(".product_list.grid.row .product-container")).Select(element => new Product(Driver, element)).ToList();
-        //private List<Product> Products => Driver.FindElements(By.CssSelector(".product_list.grid.row .product-container")).Select(element => new Product(Driver ,WaitManager.WaitUntilDisabled(Driver, element))).ToList();
-
-        private OptionsAfterAddingProduct OptionsAfterAddingProduct => new OptionsAfterAddingProduct(Driver, Driver.FindElement(By.CssSelector(".button-container")));
+        private OptionsAfterAddingProduct OptionsAfterAddingProduct => new OptionsAfterAddingProduct(Driver, Driver.FindElements(By.CssSelector(".button-container")).First());
 
         public CatalogPage(IWebDriver driver) : base(driver)
         {

@@ -16,3 +16,5 @@ d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Flu
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\System.ValueTuple.xml
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Core.dll
 d:\my documents\visual studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Core.pdb
+D:\my documents\Visual Studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Extensions.dll
+D:\my documents\Visual Studio 2015\Projects\UnitTestProject1\Tests\bin\Debug\Extensions.pdb
